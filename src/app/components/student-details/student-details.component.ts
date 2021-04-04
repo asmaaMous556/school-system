@@ -17,16 +17,16 @@ student:student
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
    this.id=params['id'];
-   console.log(this.id);
-    this.getStudent(this.id)
+ 
+    this.getStudent(this.id);
    
     })
   }
 
   getStudent(id:string){
     this.studentService.getStudentById(id).subscribe(res=>{
-    this.student=res
-    console.log(this.student.data)
+    this.student=res.data
+    console.log(this.student)
     })
   }
 

@@ -9,21 +9,21 @@
           <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
         </li>
          
-            <li class="nav-item active" *ngIf="!email">
+            <li class="nav-item active" *ngIf="!email ;else isEmail">
                 <a class="nav-link" routerLink="/login">Login</a>
               </li>
       
         
-     
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             {{email}}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" (click)="logout()">Logout</a>
+     <ng-template #isEmail>
+        <li class="nav-item dropdwn">
+            <div ngbDropdown class="d-inline-block">
+            <a class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{email}}</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem (click)="logout()">logout</button>
             </div>
-          </li>
-    
+          </div>
+        </li>
+        </ng-template>
       </ul>
     </div>
   </nav>
